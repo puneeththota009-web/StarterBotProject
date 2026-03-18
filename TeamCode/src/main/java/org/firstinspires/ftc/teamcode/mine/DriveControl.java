@@ -18,10 +18,12 @@ public class DriveControl extends OpMode {
     public void loop(){
 
     }
-    public void update(){
+    public void update() {
+
         double forward = -gamepad.left_stick_y;
         double strafe = gamepad.left_stick_x;
         double turn = gamepad.right_stick_x;
+
         drivebase.drive(forward, turn, strafe);
     }
 }

@@ -7,10 +7,7 @@ import org.firstinspires.ftc.teamcode.MecanumDrive;
 
 public class Drivebase{
     public final MecanumDrive drive;
-    public DcMotorEx leftFront;
-    public DcMotorEx rightFront;
-    public DcMotorEx rightBack;
-    public DcMotorEx leftBack;
+    public DcMotorEx leftFront, rightFront, rightBack, leftBack;
 
     public Drivebase(MecanumDrive drive, HardwareMap hwMap) {
         this.drive = drive;
@@ -18,7 +15,11 @@ public class Drivebase{
         rightFront = hwMap.get(DcMotorEx.class, "rightFront");
         rightBack = hwMap.get(DcMotorEx.class, "rightBack");
         leftBack = hwMap.get(DcMotorEx.class, "leftBack");
+        rightFront.setDirection(DcMotorEx.Direction.REVERSE);
+        rightBack.setDirection(DcMotorEx.Direction.REVERSE);
     }
+
+    
     public void drive(double forward, double turn, double strafe) {
 
         double frontLeftPower  = forward + strafe + turn;
